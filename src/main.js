@@ -1,6 +1,14 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import components from '@/components/UI';
+import App from "./App";
+import router from "@/router/router";
+import VIntresection from "@/directives/VIntresection";
+import VFocus from "@/directives/VFocus";
 
-createApp(App).use(store).use(router).mount('#app')
+const app = createApp(App)
+
+components.forEach(component=>{app.component(component.name, component)})
+app.directive('intersection', VIntresection)
+app.directive('focus', VFocus)
+
+app.use(router).mount('#app')

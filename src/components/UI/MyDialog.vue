@@ -7,20 +7,13 @@
 </template>
 
 <script>
-export default {
-  props: {
-    show: {
-      type: Boolean,
-      default: false
-    }
-  },
-  methods: {
-    hideDialog() {
-      this.$emit('update:show',false)
-    }
-  }
+import toogleMixin from "@/mixins/toogleMixin";
 
+export default {
+  mixins: [toogleMixin]
 }
+
+
 </script>
 
 <style scoped>
@@ -33,6 +26,7 @@ export default {
   position: fixed;
   display: flex;
 }
+
 .dialog__content {
   margin: auto;
   background: azure;
